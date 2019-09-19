@@ -11,18 +11,17 @@ class Scraper
       hash = {
         name: product.css(".nav-item").text,
         product_info_url: product.css("a").attribute("href").value,
-        location: student.css("p.student-location").text
       }
-      students_hash << hash
+      products_hash << hash
      end
-     students_hash
+     products_hash
    end
 
-    def self.scrape_profile_page(profile_url)
+    def self.scrape_product_page(product_info_url)
 
-      scraped_student = {}
+      scraped_product = {}
 
-      html = Nokogiri::HTML(open(profile_url))
+      html = Nokogiri::HTML(open(product_info_url))
 
         html.css(".social-icon-container a").each do |student|
         url = student.attributes["href"].value
