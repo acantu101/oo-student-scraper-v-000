@@ -23,8 +23,8 @@ class Scraper
 
       html = Nokogiri::HTML(open(product_info_url))
 
-        html.css(".social-icon-container a").each do |student|
-        url = student.attributes["href"].value
+        html.css(".row text-center productos-row").each do |product|
+        url = product.attributes["href"].value
         # scraped_student[:bio] = html.css("div.description-holder p").text
         # scraped_student[:quote] = html.css("div.profile-quote").text
             if url.include?("twitter")
