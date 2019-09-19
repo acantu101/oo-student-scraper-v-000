@@ -7,7 +7,7 @@ class Scraper
     products_hash = []
     html = Nokogiri::HTML(open(index_url))
 
-    html.css(".student-card").collect do |student|
+    html.css(".navbar-nav ml-auto").collect do |product|
       hash = {
         name: student.css("h4.student-name").text,
         profile_url: student.css("a").attribute("href").value,
