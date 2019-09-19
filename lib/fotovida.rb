@@ -10,7 +10,7 @@ class Scraper
     html.css(".navbar-nav ml-auto").collect do |product|
       hash = {
         name: product.css(".nav-item").text,
-        product_info_url: prouct.css("a").attribute("href").value,
+        product_info_url: product.css("a").attribute("href").value,
         location: student.css("p.student-location").text
       }
       students_hash << hash
